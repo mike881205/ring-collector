@@ -1,57 +1,90 @@
+// Set Counters to 0, and generate random numbers for buttons and goal
+
 let gamesWon = 0;
 let gamesLost = 0;
-let goal = 0;
 let ringsCollected = 0;
-let sonic = 0;
-let knuckles = 0;
-let tails = 0;
-let amy = 0;
-let isFinished = false;
+let goal = Math.floor(Math.random() * 101) + 19;
+let sonic = Math.floor(Math.random() * 12) + 1;
+let knuckles = Math.floor(Math.random() * 12) + 1;
+let tails = Math.floor(Math.random() * 12) + 1;
+let amy = Math.floor(Math.random() * 12) + 1;
+let startGame = true;
+let endGame = false;
 
-$("#gamesWon").html("Chaos Emeralds Found: " + gamesWon);
-$("#gamesLost").html("Chaos Emeralds Lost: " + gamesLost);
-$("#goal").html("Goal: " + goal);
-$("#ringsCollected").html("Rings Collected: " + ringsCollected);
+// Show starting counter values
 
-$("#start").on("click", function(){
-    for (let i = 1; i < 12; i++) {        
-        let charVal = Math.floor(Math.random() * 12) + 1;      
-        sonic = charVal
+$("#gamesWon").text("Chaos Emeralds Found: " + gamesWon);
+$("#gamesLost").text("Chaos Emeralds Lost: " + gamesLost);
+$("#goal").text("Goal: " + goal);
+$("#ringsCollected").text("Rings Collected: " + ringsCollected);
+$("#playAgain").hide();
+
+// Create functions to add values to 'Rings Collected' when clicked
+
+$("#sonic").on("click", function(){
+    ringsCollected = ringsCollected + sonic;    
+    $("#ringsCollected").text("Rings Collected: " + ringsCollected);
+    if (ringsCollected === goal) {
+        win();
     }
-
-    $("#sonic").val(sonic)
-
-    for (let i = 1; i < 12; i++) {        
-        let charVal = Math.floor(Math.random() * 12) + 1;      
-        knuckles = charVal
+    if (ringsCollected > goal) {
+        lose();
     }
+})
 
-    $("#knuckles").val(knuckles)
-
-    for (let i = 1; i < 12; i++) {        
-        let charVal = Math.floor(Math.random() * 12) + 1;      
-        tails = charVal
+$("#knuckles").on("click", function(){
+    ringsCollected = ringsCollected + knuckles;    
+    $("#ringsCollected").text("Rings Collected: " + ringsCollected);
+    if (ringsCollected === goal) {
+        win();
     }
-
-    $("#tails").val(tails)
-
-    for (let i = 1; i < 12; i++) {        
-        let charVal = Math.floor(Math.random() * 12) + 1;      
-        amy = charVal
+    if (ringsCollected > goal) {
+        lose();
     }
+})
 
-    $("#amy").val(amy)
-
-    for (let i = 0; i < 101; i++) {        
-        let randNum = Math.floor(Math.random() * 101) + 19;    
-        goal = randNum
+$("#tails").on("click", function(){
+    ringsCollected = ringsCollected + tails;    
+    $("#ringsCollected").text("Rings Collected: " + ringsCollected);
+    if (ringsCollected === goal) {
+        win();
     }
+    if (ringsCollected > goal) {
+        lose();
+    }
+})
 
-    $("#goal").html("Goal: " + goal);
-    
+$("#amy").on("click", function(){
+    ringsCollected = ringsCollected + amy;    
+    $("#ringsCollected").text("Rings Collected: " + ringsCollected);
+    if (ringsCollected === goal) {
+        win();
+    }
+    if (ringsCollected > goal) {
+        lose();
+    }
+})
+
+function win() {
+    alert("You Won!");
+    reset();
+    gamesWon++;
+    $("#gamesWon").text("Chaos Emeralds Found: " + gamesWon);
+}
+
+function lose() {
+    alert("You Lost");
+    reset();
+    gamesLost++;
+    $("#gamesLost").text("Chaos Emeralds Lost: " + gamesLost);
+}
+
+function reset() {
     ringsCollected = 0;
-
-    $("#ringsCollected").html("Rings Collected: " + ringsCollected);
-    
-
-});
+    $("#ringsCollected").text("Rings Collected: " + ringsCollected);
+    goal = Math.floor(Math.random() * 101) + 19;
+    sonic = Math.floor(Math.random() * 12) + 1;
+    knuckles = Math.floor(Math.random() * 12) + 1;
+    tails = Math.floor(Math.random() * 12) + 1;
+    amy = sonic = Math.floor(Math.random() * 12) + 1;
+};

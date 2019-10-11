@@ -1,3 +1,10 @@
+let characters = {
+    sonic: {name: "Sonic", value: 0},
+    knuckles: {name: "Knuckles", value: 0},
+    tails: {name: "Tails", value: 0},
+    amy: {name: "Amy", value: 0}
+}
+
 let gamesWon = 0;
 let gamesLost = 0;
 let goal = 0;
@@ -55,3 +62,5 @@ $("#start").on("click", function(){
     
 
 });
+
+
