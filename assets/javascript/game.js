@@ -11,6 +11,8 @@ let amy = Math.floor(Math.random() * 12) + 1;
 let startGame = true;
 let endGame = false;
 
+console.log(sonic, knuckles, tails, amy)
+
 // Show starting counter values
 
 $("#gamesWon").text("Chaos Emeralds Found: " + gamesWon);
@@ -83,8 +85,10 @@ function reset() {
     ringsCollected = 0;
     $("#ringsCollected").text("Rings Collected: " + ringsCollected);
     goal = Math.floor(Math.random() * 101) + 19;
+    $("#goal").text("Goal: " + goal);
     sonic = Math.floor(Math.random() * 12) + 1;
     knuckles = Math.floor(Math.random() * 12) + 1;
     tails = Math.floor(Math.random() * 12) + 1;
     amy = sonic = Math.floor(Math.random() * 12) + 1;
+    console.log(sonic, knuckles, tails, amy)
 };
