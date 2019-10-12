@@ -11,71 +11,81 @@ let amy = Math.floor(Math.random() * 12) + 1;
 let startGame = true;
 let endGame = false;
 
-console.log(sonic, knuckles, tails, amy)
-
 // Show starting counter values
 
 $("#gamesWon").text("Chaos Emeralds Found: " + gamesWon);
 $("#gamesLost").text("Chaos Emeralds Lost: " + gamesLost);
 $("#goal").text("Goal: " + goal);
 $("#ringsCollected").text("Rings Collected: " + ringsCollected);
-$("#playAgain").hide();
 
 // Create functions to add values to 'Rings Collected' when clicked
 
+// Sonic button
 $("#sonic").on("click", function(){
     ringsCollected = ringsCollected + sonic;    
     $("#ringsCollected").text("Rings Collected: " + ringsCollected);
+    // Call win function if user meets the goal
     if (ringsCollected === goal) {
         win();
     }
+    // Call function if user exceeds the goal
     if (ringsCollected > goal) {
         lose();
     }
 })
 
+// Knuckles button
 $("#knuckles").on("click", function(){
     ringsCollected = ringsCollected + knuckles;    
     $("#ringsCollected").text("Rings Collected: " + ringsCollected);
+    // Call win function if user meets the goal
     if (ringsCollected === goal) {
         win();
     }
+    // Call function if user exceeds the goal
     if (ringsCollected > goal) {
         lose();
     }
 })
 
+// Tails button
 $("#tails").on("click", function(){
     ringsCollected = ringsCollected + tails;    
     $("#ringsCollected").text("Rings Collected: " + ringsCollected);
+    // Call win function if user meets the goal
     if (ringsCollected === goal) {
         win();
     }
+    // Call function if user exceeds the goal
     if (ringsCollected > goal) {
         lose();
     }
 })
 
+// Amy button
 $("#amy").on("click", function(){
     ringsCollected = ringsCollected + amy;    
     $("#ringsCollected").text("Rings Collected: " + ringsCollected);
+    // Call win function if user meets the goal
     if (ringsCollected === goal) {
         win();
     }
+    // Call function if user exceeds the goal
     if (ringsCollected > goal) {
         lose();
     }
 })
 
+// Define functions
 function win() {
-    alert("You Won!");
+    alert("You Won! Click ok to play again!");
     reset();
     gamesWon++;
     $("#gamesWon").text("Chaos Emeralds Found: " + gamesWon);
 }
 
 function lose() {
-    alert("You Lost");
+    alert("You Lost! Click ok to play again!");
     reset();
     gamesLost++;
     $("#gamesLost").text("Chaos Emeralds Lost: " + gamesLost);
@@ -90,5 +100,5 @@ function reset() {
     knuckles = Math.floor(Math.random() * 12) + 1;
     tails = Math.floor(Math.random() * 12) + 1;
     amy = sonic = Math.floor(Math.random() * 12) + 1;
-    console.log(sonic, knuckles, tails, amy)
 };
+
