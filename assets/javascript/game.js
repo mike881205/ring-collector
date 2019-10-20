@@ -8,8 +8,6 @@ let sonic = Math.floor(Math.random() * 12) + 1;
 let knuckles = Math.floor(Math.random() * 12) + 1;
 let tails = Math.floor(Math.random() * 12) + 1;
 let amy = Math.floor(Math.random() * 12) + 1;
-let startGame = true;
-let endGame = false;
 
 // Show starting counter values
 
